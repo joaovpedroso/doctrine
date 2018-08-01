@@ -1,0 +1,14 @@
+<?php include __DIR__ . "/../header.phtml"; ?>
+<div class="container">
+    <div class="row">
+        <h3>Editar Categoria</h3>
+        <form action="<?php echo "/categorias/{$categoria->getId()}/update"; ?>" method="POST">
+            <div class="form-group">
+                <label>Nome da Categoria</label>
+                <input type="text" id="nome" name="nome" class="form-control" value="<?= $categoria->getNome(); ?>" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+    </div>
+</div>
+<?php include __DIR__ . "/../footer.phtml"; ?>

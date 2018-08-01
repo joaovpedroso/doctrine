@@ -1,0 +1,31 @@
+<?php include __DIR__ . "/../header.phtml"; ?>
+<div class="container">
+    <div class="row">
+        <h3>Listagem de Posts</h3>
+        <a href="/posts/create" class="btn btn-success">Novo Cadastro</a>
+
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Título</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($posts as $posts) { ?>
+                    <tr>
+                        <td><?= $posts->getId(); ?></td>
+                        <td><?= $posts->getTitulo(); ?></td>
+                        <td>
+                        <?= "<a href='/posts/{$posts->getId()}/categorias' class='badge badge-success'>Categorias</a>"; ?>
+                        <?= "<a href='/posts/{$posts->getId()}/edit' class='badge badge-success'>Editar</a>"; ?>
+                        <?= "<a href='/posts/{$posts->getId()}/excluir' class='badge badge-danger'>Excluir</a>"; ?>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<?php include __DIR__ . "/../footer.phtml"; ?>

@@ -1,0 +1,18 @@
+<?php include __DIR__ . "/../header.phtml"; ?>
+<div class="container">
+    <div class="row">
+        <h3>Cadastrar Post</h3>
+        <form action="/posts/store" method="POST">
+            <div class="form-group">
+                <label>Titulo do Post</label>
+                <input type="text" id="titulo" name="titulo" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label>Texto</label>
+                <textarea name="texto" class="form-control" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+    </div>
+</div>
+<?php include __DIR__ . "/../footer.phtml"; ?>
