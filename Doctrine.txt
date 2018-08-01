@@ -1,0 +1,56 @@
+*Instalar
+    require doctrine/orm
+
+*Configurar o console
+    cli-config.php
+
+* Criar Entity
+* Criar Mapeamento - na Entity ( Por anotation )
+* Sincronizar com o banco de dados
+
+    **Criar novo
+        vendor/bin/doctrine orm:schema-tool:create
+
+    **Atualizar Entity no Banco
+	vendor/bin/doctrine orm:schema-tool:update --dump-sql
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------
+******** Anotações ********
+---------------------------------------------------------------------------------------------------------
+
+
+
+****Entity - Representação da tabela - ( Classe Burra )
+
+****--Diferença entre Model e Entity {
+	Entidade = Não faz nada apenas representação
+	Modelo = Pode representar e realizar também operações no banco de dados.
+}
+
+****Verificar se o Mapeamento está correto
+	vendor/bin/doctrine orm:validate-schema
+
+****Gerar Entity apartir de banco ja existente
+	orm:generate-entities
+
+****Gerar Tabela no banco a partir de Entityes
+	vendor/bin/doctrine orm:schema-tool:create
+
+****Executar comandos SQL no console
+	vendor/bin/doctrine dbal:run-sql "SELECT * FROM tabela"
+
+****Anotations:
+@Entity = Dizendo ao doctrine que a classe é uma entidade	Ex: @Entity
+@Table  = Dizendo qual tabela a classe representa		Ex: @Table(name="categoria")
+@Id 	= Definindo chave primaria
+@Column = Tipo da coluna					Ex: @Column(type="integer", length=100)
+@GeneratedValue = Definir atributo como auto incremento 	Ex: @GeneratedValue(strategy="AUTO")
+@ManyToMany = Definir Relacionamento 				Ex: @ManyToMany(target="App\Entity\Category")
